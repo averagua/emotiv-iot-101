@@ -25,14 +25,14 @@ class DataBuff:
 		if self.index<256:
 			
 			for i in range(self.size):
-				self.data["chan"+str(i)][str(self.index)]=datavector[i]
+				self.data["chan"+str(i+1)][str(self.index)]=datavector[i]
 
 			self.index+=1
 
 		else: 
 			self.flush()
 			for i in range(self.chan):
-				self.data["chan"+str(i)][str(self.index)]=datavector[i]
+				self.data["chan"+str(i+1)][str(self.index)]=datavector[i]
 			self.index+=1
 
 
@@ -42,6 +42,6 @@ class DataBuff:
 		#Resetea el arreglo
 		for i in range(self.chan):
 			for j in range(self.size):
-				self.data["chan"+str(i)][str(j)]=0
+				self.data["chan"+str(i+1)][str(j)]=0
 
 		self.index=0
