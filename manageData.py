@@ -24,7 +24,7 @@ class DataBuff:
 		#Agrega los datos en secuencia, resetea y agrega en la primera posición si el buffer está lleno
 		if self.index<256:
 			
-			for i in range(self.bufsize):
+			for i in range(self.size):
 				self.data["chan"+str(i)][str(self.index)]=datavector[i]
 
 			self.index+=1
