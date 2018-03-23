@@ -16,7 +16,7 @@ class DataBuff:
 		for j in range(channels):
 			blankdict["chan"+str(j+1)]=blanksub
 
-		self.datos=blankdict 	#Nested dictionary, vacío (con puros ceros)
+		self.data=blankdict 	#Nested dictionary, vacío (con puros ceros)
 		self.index=0			#Contador de fila de datos agregada, si llega a 257, el arreglo se resetea.
 
 
@@ -25,14 +25,14 @@ class DataBuff:
 		if self.index<256:
 			
 			for i in range(self.bufsize):
-				self.datos["chan"+str(i)][str(self.index)]=datavector[i]
+				self.data["chan"+str(i)][str(self.index)]=datavector[i]
 
 			self.index+=1
 
 		else: 
 			self.flush()
 			for i in range(self.chan):
-				self.datos["chan"+str(i)][str(self.index)]=datavector[i]
+				self.data["chan"+str(i)][str(self.index)]=datavector[i]
 			self.index+=1
 
 
@@ -42,6 +42,6 @@ class DataBuff:
 		#Resetea el arreglo
 		for i in range(self.chan):
 			for j in range(self.size):
-				self.datos["chan"+str(i)][str(j)]=0
+				self.data["chan"+str(i)][str(j)]=0
 
 		self.index=0
