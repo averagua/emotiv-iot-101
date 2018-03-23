@@ -20,7 +20,7 @@ class DataBuff:
 		self.index=0			#Contador de fila de datos agregada, si llega a 257, el arreglo se resetea.
 
 
-	def add_data(datavector):
+	def add_data(self,datavector):
 		#Agrega los datos en secuencia, resetea y agrega en la primera posición si el buffer está lleno
 		if self.index<256:
 			
@@ -38,7 +38,7 @@ class DataBuff:
 
 
 
-	def flush():
+	def flush(self):
 		#Resetea el arreglo
 		for i in range(self.chan):
 			for j in range(self.size):
